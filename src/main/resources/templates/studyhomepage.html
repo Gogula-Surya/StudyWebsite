@@ -5,15 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome - Study Resources</title>
   <style>
+  /* Reset and base styles */
     body {
       font-family: Arial, sans-serif;
+      font-size: 16px; /* Consistent base font size */
+      line-height: 1.5;
       background: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg') no-repeat center center/cover;
       margin: 0;
       padding: 40px 20px;
       display: flex;
       justify-content: center;
       position: relative;
+      color: #fff;
     }
+
     .container {
       background: rgba(255, 255, 255, 0.1);
       max-width: 900px;
@@ -24,30 +29,64 @@
       backdrop-filter: blur(8px);
       position: relative;
     }
-    h1, .section h2, p {
-      color: #ffffff;
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+      text-align: center;
+      color: #e0ffff;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #d0f0f0;
       text-align: center;
     }
+
+    p {
+      font-size: 1rem;
+      margin: 10px 0 25px 0;
+      text-align: center;
+      color: #cceeee;
+    }
+
+    #welcomeUser {
+      color: #00ffff;
+      font-size: 1.4rem;
+      margin: 20px 0;
+      text-align: center;
+      font-weight: 600;
+    }
+
     ul {
       list-style: none;
       padding: 0;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
     }
+
     li {
       background: #fff;
       margin: 10px 0;
-      padding: 15px;
+      padding: 15px 20px;
       border-left: 5px solid #3498db;
       box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
     }
+
     li a {
       text-decoration: none;
       color: #2980b9;
-      font-weight: bold;
+      font-weight: 600;
       display: block;
+      font-size: 1rem;
     }
+
     li a:hover {
       text-decoration: underline;
     }
+
     .profile-icon {
       position: fixed;
       top: 20px;
@@ -64,7 +103,10 @@
       color: #3498db;
       box-shadow: 0 0 8px #fff;
       z-index: 2000;
+      user-select: none;
+      font-size: 1.6rem;
     }
+
     .modal {
       display: none;
       position: fixed;
@@ -75,87 +117,115 @@
       border-radius: 10px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
       z-index: 1500;
-      min-width: 250px;
+      min-width: 280px;
       opacity: 0;
       transform: translateY(-10px);
       transition: opacity 0.3s ease, transform 0.3s ease;
+      color: #2c3e50;
+      font-size: 0.95rem;
+      user-select: text;
     }
+
     .modal.show {
       display: block;
       opacity: 1;
       transform: translateY(0);
     }
+
     .modal h3 {
       margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+      font-weight: 700;
       color: #2c3e50;
     }
+
     .modal p {
-      color: #333;
+      margin: 6px 0;
+      font-weight: 500;
     }
+
     .modal-buttons {
       display: flex;
       gap: 10px;
       margin-top: 15px;
     }
+
     .delete-btn, .logout-btn {
       border: none;
       padding: 8px 12px;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 700;
       flex: 1;
+      font-size: 0.9rem;
+      user-select: none;
+      transition: background-color 0.2s ease;
     }
+
     .delete-btn {
-      background-color: red;
+      background-color: #e74c3c;
       color: white;
     }
+
     .delete-btn:hover {
-      background-color: darkred;
+      background-color: #c0392b;
     }
+
     .logout-btn {
-      background-color: orange;
+      background-color: #e67e22;
       color: white;
     }
+
     .logout-btn:hover {
-      background-color: darkorange;
+      background-color: #d35400;
     }
-    #welcomeUser {
-      color: #00ffff;
-      font-size: 22px;
-      margin: 20px 0;
-      text-align: center;
-    }
-    
-    
+
     /* --- Mobile Mode Styles --- */
     @media (max-width: 768px) {
       body {
-        padding: 20px 10px; /* Adjust padding for smaller screens */
+        padding: 20px 10px;
         text-align: center;
       }
+
       .container {
-        padding: 20px; /* Reduce container padding */
+        padding: 20px;
       }
+
       .profile-icon {
-        top: 10px; /* Adjust icon position */
+        top: 10px;
         right: 10px;
-        width: 40px; /* Smaller icon */
+        width: 40px;
         height: 40px;
+        font-size: 1.3rem;
       }
+
       .modal {
-        top: 60px; /* Adjust modal position for smaller screens */
+        top: 60px;
         right: 10px;
-        min-width: unset; /* Remove min-width to allow it to shrink */
-         /* Make modal take almost full width */
+        min-width: unset;
+        width: 90vw;
+        font-size: 0.9rem;
       }
+
       .modal-buttons {
-        flex-direction: column; /* Stack buttons vertically */
+        flex-direction: column;
       }
-      .section h2 {
-        font-size: 1.2em; /* Slightly smaller headings */
+
+      h1 {
+        font-size: 1.8rem;
       }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      p, #welcomeUser {
+        font-size: 1rem;
+      }
+
       li {
-        padding: 12px; /* Smaller padding for list items */
+        padding: 12px;
       }
     }
   </style>
