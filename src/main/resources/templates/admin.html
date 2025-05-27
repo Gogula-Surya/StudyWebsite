@@ -6,122 +6,123 @@
     <title>Admin Panel - User Management</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            padding: 20px;
-            background: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg') no-repeat center center/cover;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            /* margin: 0; */
-            /* padding: 0; */
-            /* display: flex; */
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            color: white;
-        }
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-        th {
-            background-color: #007bff;
-            color: white;
-        }
-        button {
-            padding: 8px 12px;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #c82333;
-        }
-        #downloadBtn {
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background-color: #28a745;
-        }
-        #downloadBtn:hover {
-            background-color: #218838;
-        }
-        #searchInput {
-            padding: 10px;
-            width: 300px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        h1{
-            color: white;
-        }
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    padding: 20px;
+    background: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* margin: 0; */
+    /* padding: 0; */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+th {
+    background-color: #007bff;
+    color: white;
+}
+button {
+    padding: 8px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #c82333;
+}
+#downloadBtn {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+}
+#downloadBtn:hover {
+    background-color: #218838;
+}
+#searchInput {
+    padding: 10px;
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+h1{
+    color: white;
+}
 
-        /* --- ONLY ADDITIONS FOR MOBILE FRIENDLINESS --- */
-        /* Wrapper to enable horizontal scrolling for the table on small screens */
-        .table-responsive {
-            overflow-x: auto; /* Enables horizontal scrolling */
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-            background-color: rgba(0, 0, 0, 0.5); /* Adds a background for better readability */
-            border-radius: 8px; /* Slightly rounded corners */
-            padding: 5px; /* Small padding inside the container */
-        }
+/* --- ONLY ADDITIONS FOR MOBILE FRIENDLINESS --- */
+/* Wrapper to enable horizontal scrolling for the table on small screens */
+.table-responsive {
+    overflow-x: auto; /* Enables horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    background-color: rgba(0, 0, 0, 0.5); /* Adds a background for better readability */
+    border-radius: 8px; /* Slightly rounded corners */
+    padding: 5px; /* Small padding inside the container */
+}
 
-        /* Styles applied ONLY when screen width is 768px or less (typical mobile/tablet) */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px; /* Reduce overall padding for smaller screens */
-            }
+/* Styles applied ONLY when screen width is 768px or less (typical mobile/tablet) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce overall padding for smaller screens */
+    }
 
-            h1 {
-                text-align: center; /* Center heading on mobile */
-                font-size: 1.8em; /* Slightly smaller heading font size */
-            }
+    h1 {
+        text-align: center; /* Center heading on mobile */
+        font-size: 1.8em; /* Slightly smaller heading font size */
+    }
 
-            #searchInput,
-            #downloadBtn {
-                width: calc(100% - 20px); /* Make these elements take almost full width */
-                box-sizing: border-box; /* Include padding and border in the element's total width */
-                display: block; /* Make them stack vertically */
-                margin-left: auto; /* Center block elements */
-                margin-right: auto;
-                font-size: 0.9em; /* Smaller font for input/button text */
-            }
+    #searchInput,
+    #downloadBtn {
+        width: calc(100% - 20px); /* Make these elements take almost full width */
+        box-sizing: border-box; /* Include padding and border in the element's total width */
+        display: block; /* Make them stack vertically */
+        margin-left: auto; /* Center block elements */
+        margin-right: auto;
+        font-size: 0.9em; /* Smaller font for input/button text */
+    }
 
-            table {
-                min-width: 600px; /* Ensures the table always has a minimum width, triggering scroll */
-                white-space: nowrap; /* Prevents text wrapping in table cells */
-            }
+    table {
+        min-width: 600px; /* Ensures the table always has a minimum width, triggering scroll */
+        white-space: nowrap; /* Prevents text wrapping in table cells */
+    }
 
-            th, td {
-                padding: 8px; /* Reduce cell padding for tighter fit */
-                font-size: 0.85em; /* Smaller font size for table content */
-                overflow: hidden; /* Hide overflowing content */
-                text-overflow: ellipsis; /* Add ellipsis for long text in cells */
-            }
+    th, td {
+        padding: 8px; /* Reduce cell padding for tighter fit */
+        font-size: 0.85em; /* Smaller font size for table content */
+        overflow: hidden; /* Hide overflowing content */
+        text-overflow: ellipsis; /* Add ellipsis for long text in cells */
+    }
 
-            button {
-                padding: 6px 10px; /* Smaller button padding */
-                font-size: 0.8em; /* Smaller button font size */
-            }
-        }
+    button {
+        padding: 6px 10px; /* Smaller button padding */
+        font-size: 0.8em; /* Smaller button font size */
+    }
+}
 
-        /* Further adjustments for very small mobile screens (e.g., phones) */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5em; /* Even smaller heading for very small screens */
-            }
-            table {
-                min-width: 450px; /* Adjust minimum width for even smaller screens */
-            }
-        }
+/* Further adjustments for very small mobile screens (e.g., phones) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; /* Even smaller heading for very small screens */
+    }
+    table {
+        min-width: 450px; /* Adjust minimum width for even smaller screens */
+    }
+}
+
     </style>
 </head>
 <body>
