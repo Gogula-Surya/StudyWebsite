@@ -1,14 +1,11 @@
-# Use official OpenJDK 17 image from Docker Hub
-FROM openjdk:17-jdk-slim
-
-# Set working directory inside the container
+# Use Maven to build the project
+FROM maven:3.8.5-eclipse-temurin-17 AS build
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Copy the built JAR file into the container
-COPY target/login-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose port 8080 (default for Spring Boot)
-EXPOSE 20060
-
-# Run the application
+# Use a lightweight JDK image to run the jar
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
