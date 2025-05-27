@@ -6,110 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+       html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background-image: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
 
-        .form-container {
-            padding: 40px;
-            border-radius: 18px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.991);
-            max-width: 400px;
-            width: 100%;
-        }
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 
-        .form-container h2 {
-            text-align: center;
-            color: #ffffff;
-        }
+.form-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  max-width: 400px;
+  width: 100%;
+}
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+h1, h2 {
+  font-size: 22px;
+  margin: 0 0 10px;
+  color: #ffffff;
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #ffffff;
-        }
+.form-group {
+  margin-bottom: 15px;
+}
 
-        .form-group input {
-            background-color: transparent;
-            color: white; /* Default password text color */
-        }
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
 
-        .form-group input:focus {
-            background-color: white;
-            color: black; /* Password text color when focused */
-        }
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
 
-        .form-group input::placeholder {
-            color: #ccc; /* Placeholder text color */
-        }
+.form-group input:focus,
+.form-group select:focus {
+  background-color: #ffffff;
+  color: black;
+  outline: none;
+}
 
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-            border-radius: 5px;
-            border: 1px solid #f9f7f7;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            /* background-color: transparent; */
-        }
+.form-group input::placeholder {
+  color: #ccc;
+}
 
-        .submit-btn {
-            display: none;
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+.submit-btn {
+  display: none;
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-        .submit-btn:hover {
-            background-color: #3498db;
-        }
+.submit-btn:hover {
+  background-color: #218838;
+}
 
-        .back-arrow {
-            position: relative;
-            top: 0;
-            left: 0;
-            font-size: 16px;
-            cursor: pointer;
-            color: #3498db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
+.back-arrow {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #00bfff;
+  text-decoration: none;
+  font-size: 16px;
+}
 
-        .back-arrow:hover {
-            color: #2980b9;
-        }
+.back-arrow:hover {
+  color: #1e90ff;
+}
 
-        h1 {
-            color: white;
-        }
+.show-password {
+  color: white;
+  font-size: 14px;
+  margin-top: -8px;
+  margin-bottom: 15px;
+}
 
-        .show-password {
-            margin-top: -10px;
-            margin-bottom: 15px;
-            color: white;
-            font-size: 13px;
-        }
     </style>
 </head>
 
