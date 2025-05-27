@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <style>
+        :root {
+            font-size: 16px;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-image: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg');
@@ -17,39 +21,39 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 1rem;
         }
 
         .container {
             text-align: center;
             background-color: rgba(0, 0, 0, 0.6);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            max-width: 600px;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 0 1.25rem rgba(255, 255, 255, 0.3);
+            max-width: 40rem;
             width: 100%;
         }
 
         h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
             color: #e9edf0;
         }
 
         .about-us {
             color: #e9edf0;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
             text-align: left;
         }
 
         .about-us h2 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
             color: white;
         }
 
         .about-us p {
-            font-size: 16px;
+            font-size: 1rem;
             color: #d0d6da;
             line-height: 1.6;
         }
@@ -58,12 +62,12 @@
             display: inline-block;
             background-color: #3498db;
             color: white;
-            padding: 12px 20px;
+            padding: 0.75rem 1.25rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 0.375rem;
             text-decoration: none;
-            font-size: 16px;
-            margin: 10px 5px;
+            font-size: 1rem;
+            margin: 0.5rem 0.25rem;
             transition: background-color 0.3s ease;
         }
 
@@ -72,9 +76,9 @@
         }
 
         .footer {
-            margin-top: 20px;
+            margin-top: 1.5rem;
             color: white;
-            font-size: 14px;
+            font-size: 0.875rem;
         }
 
         .footer a {
@@ -86,33 +90,35 @@
             text-decoration: underline;
         }
 
-        /* Responsive Styles */
         @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
-
-            .about-us h2 {
-                font-size: 18px;
-            }
-
-            .about-us p {
+            :root {
                 font-size: 14px;
             }
 
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.25rem;
+            }
+
+            .about-us h2 {
+                font-size: 1.125rem;
+            }
+
+            .about-us p {
+                font-size: 0.9375rem;
+            }
+
             .button {
-                font-size: 15px;
-                padding: 10px;
                 width: 100%;
-                margin: 8px 0;
+                font-size: 1rem;
+                margin: 0.5rem 0;
             }
 
             .footer {
-                font-size: 13px;
+                font-size: 0.8125rem;
             }
         }
     </style>
