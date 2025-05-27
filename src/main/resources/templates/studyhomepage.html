@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome - Study Resources</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg') no-repeat center center/cover;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      max-width: 900px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+    h1, .section h2, p {
+      color: #ffffff;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #fff;
+      margin: 10px 0;
+      padding: 15px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    }
+    li a {
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: bold;
+      display: block;
+    }
+    li a:hover {
+      text-decoration: underline;
+    }
+    .profile-icon {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      width: 45px;
+      height: 45px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #3498db;
+      box-shadow: 0 0 8px #fff;
+      z-index: 2000;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 80px;
+      right: 30px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      z-index: 1500;
+      min-width: 250px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .modal.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .modal h3 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    .modal p {
+      color: #333;
+    }
+    .modal-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .delete-btn, .logout-btn {
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      flex: 1;
+    }
+    .delete-btn {
+      background-color: red;
+      color: white;
+    }
+    .delete-btn:hover {
+      background-color: darkred;
+    }
+    .logout-btn {
+      background-color: orange;
+      color: white;
+    }
+    .logout-btn:hover {
+      background-color: darkorange;
+    }
+    #welcomeUser {
+      color: #00ffff;
+      font-size: 22px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    
+    /* --- Mobile Mode Styles --- */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 10px; /* Adjust padding for smaller screens */
+        text-align: center;
+      }
+      .container {
+        padding: 20px; /* Reduce container padding */
+      }
+      .profile-icon {
+        top: 10px; /* Adjust icon position */
+        right: 10px;
+        width: 40px; /* Smaller icon */
+        height: 40px;
+      }
+      .modal {
+        top: 60px; /* Adjust modal position for smaller screens */
+        right: 10px;
+        min-width: unset; /* Remove min-width to allow it to shrink */
+         /* Make modal take almost full width */
+      }
+      .modal-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+      }
+      .section h2 {
+        font-size: 1.2em; /* Slightly smaller headings */
+      }
+      li {
+        padding: 12px; /* Smaller padding for list items */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="profile-icon" id="profileIcon" onclick="toggleModal()">👤</div>
+
+<div class="modal" id="profileModal">
+  <h3>User Profile</h3>
+  <p><strong>First Name:</strong> <span id="firstName">Loading...</span></p>
+  <p><strong>Last Name:</strong> <span id="lastName">Loading...</span></p>
+  <p><strong>Gender:</strong> <span id="gender">Loading...</span></p>
+  <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+  <p><strong>Password:</strong> <span id="password">Loading...</span></p>
+  <div class="modal-buttons">
+    <button class="delete-btn" onclick="deleteAccount()">Delete Account</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+  <h1>🎓 Welcome to the Surya Study Resource Hub</h1>
+  <div id="welcomeUser">Welcome, [User]</div>
+  <p>Boost your skills with these amazing free learning platforms!</p>
+
+  <div class="section">
+    <h2>🌐 General Programming</h2>
+    <ul>
+      <li><a href="https://www.w3schools.com" target="_blank">W3Schools - Learn HTML, CSS, JS, and more</a></li>
+      <li><a href="https://www.tutorialspoint.com" target="_blank">TutorialsPoint - Programming Tutorials for Everything</a></li>
+      <li><a href="https://www.javatpoint.com" target="_blank">JavaTPoint - Great Java and Web Tech Tutorials</a></li>
+      <li><a href="https://www.geeksforgeeks.org" target="_blank">GeeksforGeeks - Coding and Interview Preparation</a></li>
+      <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs - HTML, CSS, and JS References</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>💻 Web Development</h2>
+    <ul>
+      <li><a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp - Interactive Web Dev Courses</a></li>
+      <li><a href="https://codepen.io" target="_blank">CodePen - Test Your Frontend Code Online</a></li>
+      <li><a href="https://css-tricks.com" target="_blank">CSS-Tricks - Awesome Tips and Guides on CSS</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🐍 Python & Java</h2>
+    <ul>
+      <li><a href="https://docs.python.org/3/tutorial/" target="_blank">Python Official Tutorial</a></li>
+      <li><a href="https://realpython.com" target="_blank">Real Python - High Quality Python Tutorials</a></li>
+      <li><a href="https://www.javatpoint.com/java-tutorial" target="_blank">JavaTPoint Java Tutorial</a></li>
+      <li><a href="https://www.geeksforgeeks.org/java/" target="_blank">GeeksforGeeks Java Guide</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📊 Data Structures & Algorithms</h2>
+    <ul>
+      <li><a href="https://www.geeksforgeeks.org/data-structures/" target="_blank">GFG - DS & Algo Mastery</a></li>
+      <li><a href="https://visualgo.net/en" target="_blank">VisualAlgo - Interactive Visualizations</a></li>
+      <li><a href="https://www.interviewbit.com" target="_blank">InterviewBit - DSA + Interview Practice</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🎥 YouTube Channels</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/@ApnaCollegeOfficial" target="_blank">Apna College</a></li>
+      <li><a href="https://www.youtube.com/@CodeWithHarry" target="_blank">CodeWithHarry</a></li>
+      <li><a href="https://www.youtube.com/@Telusko" target="_blank">Telusko</a></li>
+      <li><a href="https://www.youtube.com/@freecodecamp" target="_blank">freeCodeCamp.org</a></li>
+    </ul>
+  </div>
+
+  <p style="margin-top: 40px;">🚀 Keep Learning & Keep Growing!</p>
+</div>
+
+<script>
+// Fetch the user profile from the server
+fetch("/profile")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Failed to fetch user profile");
+    }
+    return response.json();
+  })
+  .then(user => {
+    // Successfully got user
+    document.getElementById("firstName").textContent = user.firstName;
+    document.getElementById("lastName").textContent = user.lastName;
+    document.getElementById("gender").textContent = user.gender;
+    document.getElementById("email").textContent = user.email;
+    document.getElementById("password").textContent = user.password;
+    document.getElementById("welcomeUser").textContent = `Welcome, ${user.firstName} ${user.lastName}`;
+  })
+  .catch(error => {
+    console.error(error);
+    alert("Error fetching user profile. Please login again.");
+    window.location.href = "/login"; // redirect back to login page
+  });
+
+function toggleModal() {
+  document.getElementById("profileModal").classList.toggle("show");
+}
+
+document.addEventListener("click", function(event) {
+  const modal = document.getElementById("profileModal");
+  const icon = document.getElementById("profileIcon");
+  if (!modal.contains(event.target) && !icon.contains(event.target)) {
+    modal.classList.remove("show");
+  }
+});
+
+function deleteAccount() {
+  if (confirm("Are you sure you want to delete your account? This action cannot be undone!")) {
+    fetch("/delete", { method: "GET" })
+      .then(res => {
+        if (res.redirected) {
+          alert("Your account has been deleted successfully!");
+          window.location.href = res.url;
+        } else {
+          alert("Error while deleting account. Please try again!");
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        alert("Server error during deletion!");
+      });
+  }
+}
+
+function logout() {
+  if (confirm("Are you sure you want to logout?")) {
+    fetch("/logout", { method: "GET" })
+      .then(res => {
+        if (res.redirected) {
+          window.location.href = res.url;
+        } else {
+          alert("Error during logout.");
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        alert("Server error during logout.");
+      });
+  }
+}
+</script>
+
+
+</body>
+</html>

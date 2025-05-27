@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            
+            padding: 30px 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.991);
+            width: 90%;
+            max-width: 450px;
+            box-sizing: border-box;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 5px;
+            border: 1px solid #f9f7f7;
+            background-color: transparent;
+            color: white;
+        }
+
+        .form-group input:focus {
+            background-color: white;
+            color: black;
+            outline: none;
+        }
+
+        .form-group input::placeholder {
+            color: #ccc;
+        }
+
+        .submit-btn {
+            display: none;
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #3498db;
+        }
+
+        .show-password {
+            margin-top: -5px;
+            margin-bottom: 15px;
+            color: white;
+            font-size: 13px;
+        }
+
+        .back-arrow {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .back-arrow:hover {
+            color: #2980b9;
+        }
+
+        .error-msg {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+
+            .form-group label {
+                font-size: 14px;
+            }
+
+            .form-group input {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .submit-btn {
+                font-size: 15px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <a th:href="@{/}" class="back-arrow">&larr; Back</a>
+        <h1>Admin Login</h1>
+        <h2>Enter Your Credentials</h2>
+
+        <p th:if="${error}" th:text="${error}" class="error-msg"></p>
+
+        <form th:action="@{/admin-login}" method="post" oninput="checkForm()">
+            <div class="form-group">
+                <label for="email">Admin Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter admin email" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Admin Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter admin password" required />
+            </div>
+
+            <div class="show-password">
+                <input type="checkbox" id="showPassword" onclick="togglePassword()" />
+                <label for="showPassword">Show Password</label>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Login as Admin</button>
+        </form>
+    </div>
+
+    <script>
+        function checkForm() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (email.trim() !== '' && password.trim() !== '') {
+                submitBtn.style.display = 'block';
+            } else {
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const showPasswordCheckbox = document.getElementById('showPassword');
+            passwordField.type = showPasswordCheckbox.checked ? 'text' : 'password';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #e9edf0;
+        }
+
+        .about-us {
+            color: #e9edf0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .about-us h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .about-us p {
+            font-size: 16px;
+            color: #d0d6da;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            margin-top: 20px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .about-us h2 {
+                font-size: 18px;
+            }
+
+            .about-us p {
+                font-size: 14px;
+            }
+
+            .button {
+                font-size: 15px;
+                padding: 10px;
+                width: 100%;
+                margin: 8px 0;
+            }
+
+            .footer {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="about-us">
+            <h2>About Our Platform</h2>
+            <p>Welcome! Our platform provides you with seamless access to a variety of websites through a single login. Once you create an account and log in, you'll be able to explore our integrated services and manage your data securely.</p>
+            <p>Join our Surya community today and experience a streamlined online experience!</p>
+        </div>
+        <h1>Ready to Get Started?</h1>
+        <a href="/login" class="button">Login</a>
+        <a th:href="@{/signup}" class="button">Sign Up</a>
+        <div class="footer">
+            <p>Already have an account? <a href="/login">Log In</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/036/055/737/small_2x/ai-generated-black-background-with-water-drops-on-it-photo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.991);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .form-group input {
+            background-color: transparent;
+            color: white; /* Default password text color */
+        }
+
+        .form-group input:focus {
+            background-color: white;
+            color: black; /* Password text color when focused */
+        }
+
+        .form-group input::placeholder {
+            color: #ccc; /* Placeholder text color */
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #f9f7f7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* background-color: transparent; */
+        }
+
+        .submit-btn {
+            display: none;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #3498db;
+        }
+
+        .back-arrow {
+            position: relative;
+            top: 0;
+            left: 0;
+            font-size: 16px;
+            cursor: pointer;
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .back-arrow:hover {
+            color: #2980b9;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .show-password {
+            margin-top: -10px;
+            margin-bottom: 15px;
+            color: white;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <a th:href="@{/}" class="back-arrow">&larr; Back</a>
+        <h1>Sign Up Form</h1>
+        <h2>Enter Your Details</h2>
+
+        <form th:action="@{/signup}" th:object="${user}" method="post" onsubmit="return redirectToLogin()">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" th:field="*{firstName}" placeholder="Enter your first name"
+                    oninput="checkForm()" />
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" th:field="*{lastName}" placeholder="Enter your last name"
+                    oninput="checkForm()" />
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" th:field="*{gender}" onchange="checkForm()">
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" placeholder="Enter your email" oninput="checkForm()" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" th:field="*{password}" placeholder="Enter your password"
+                    oninput="checkForm()" required />
+            </div>
+
+            <div class="show-password">
+                <input type="checkbox" id="showPassword" onclick="togglePassword()" />
+                <label for="showPassword">Show Password</label>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Create Account</button>
+        </form>
+    </div>
+
+    <script>
+        function checkForm() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const gender = document.getElementById('gender').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (firstName && lastName && gender && email && password) {
+                submitBtn.style.display = 'block';
+            } else {
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const showPasswordCheckbox = document.getElementById('showPassword');
+            passwordField.type = showPasswordCheckbox.checked ? 'text' : 'password';
+        }
+
+        function redirectToLogin() {
+            setTimeout(() => {
+                window.location.href = 'studyhomepage.html'; // Change this if you want a different page
+            }, 300);
+            return true;
+        }
+    </script>
+</body>
+
+</html>
