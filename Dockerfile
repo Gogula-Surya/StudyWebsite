@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/login-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 8080 (default for Spring Boot)
-EXPOSE 8080
+EXPOSE 20060
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
